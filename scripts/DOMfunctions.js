@@ -1,8 +1,18 @@
 
 // Breaking Bad Search DOM Manipulation
+import { getRandom, randomInformation } from "./requests.js";
 
-// const updateRandom = (randomCharacter) => {
-//     console.log(randomCharacter);
-// }
+getRandom();
 
-// export { updateRandom };
+let plz = randomInformation;
+
+const randomBtnClicked = () => {
+    console.log(randomInformation);
+    // console.log(randomInformation);
+    // const NAME = document.querySelector('h2');
+    // NAME.textContent = randomInformation[0];
+    
+}
+
+
+export { randomBtnClicked, plz };
