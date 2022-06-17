@@ -1,14 +1,12 @@
 
 // Breaking Bad Search Main JS
 
-import { getRandom, randomInformation } from "./requests.js";
-import { randomBtnClicked, plz } from './DOMfunctions.js';
+import { getRandom, getAllData } from "./requests.js";
+import { randomBtnClicked, searchBar } from './DOMfunctions.js';
 
 
-// getRandom();
-console.log(plz);
-// randomBtnClicked();
-
+randomBtnClicked();
+searchBar();
 
 
 
