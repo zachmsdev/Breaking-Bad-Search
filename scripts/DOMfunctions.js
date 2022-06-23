@@ -95,7 +95,7 @@ const searchBar = async () => {
         const searchedObject = searched[0];
         name.textContent = searchedObject.name;
         characterPic.style.background = `url(${searchedObject.img})`;
-        if (searchedObject.name === 'holly white') characterPic.style.background = 'url(../images/holly.png)';
+        if (searchedObject.name === 'holly white') characterPic.style.background = 'url(../Breaking-Bad-Search/images/holly.png)';
         characterPic.style.backgroundSize = 'cover';
         characterPic.style.backgroundPosition = 'top';
         if (searchedObject.name === 'marco & leonel salamanca') characterPic.style.backgroundPosition = 'center'; 
@@ -115,7 +115,7 @@ const randomBtnClicked = async () => {
     // card changes
     name.textContent = RANDOM.name;
     characterPic.style.background = `url(${RANDOM.mugshot})`;
-    if (RANDOM.name === 'Holly White') characterPic.style.background = 'url(../images/holly.png)';
+    if (RANDOM.name === 'Holly White') characterPic.style.background = 'url(../Breaking-Bad-Search/images/holly.png)';
     nickName.textContent = RANDOM.nickname;
     occupation.textContent = RANDOM.occupation;
     status.textContent = RANDOM.healthStatus;
