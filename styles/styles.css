@@ -115,47 +115,124 @@ section {
 }
 
 section > .characterPic {
-  height: 17rem;
-  width: 17rem;
+  height: 19rem;
+  width: 19rem;
   border-radius: 50%;
   background-color: #274E22;
   border: 0.1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 article {
   overflow-wrap: break-word;
   width: 70%;
   max-width: 20.063em;
+  min-height: 18rem;
   padding: 0.5em 0.5em 0.8em 0.5em;
   background-color: #FFFFFF;
   -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
           box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-article > h2 {
+article > .cardContent {
+  display: none;
+}
+
+article div > h2 {
   text-align: center;
+  text-transform: capitalize;
   padding-top: 0.5em;
   font-family: 'Arial';
   font-weight: 500;
   margin-bottom: 0.5em;
 }
 
-article > p {
+article div > p {
   text-align: center;
   margin-bottom: 0.1em;
   color: #274E22;
 }
 
-article > h3 {
+article div > h3 {
   text-align: center;
   margin-bottom: 0.5em;
   font-family: 'Jacques Francois';
   font-size: 1.9rem;
 }
 
+i {
+  font-size: 2.75rem;
+  -webkit-animation: moveBeaker 2s infinite;
+          animation: moveBeaker 2s infinite;
+  animation-direction: alternate-reverse;
+}
+
+.loadingBeaker {
+  min-height: 18rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+i.hide {
+  display: none;
+}
+
+.loadingBeaker.hide {
+  display: none;
+}
+
+.cardContent.hide {
+  display: none;
+}
+
+.cardContent.show {
+  display: inherit;
+}
+
+.characterPic.loading {
+  background: #274E22 !important;
+}
+
+@-webkit-keyframes moveBeaker {
+  from {
+    -webkit-transform: rotate(-35deg);
+            transform: rotate(-35deg);
+  }
+  to {
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+  }
+}
+
+@keyframes moveBeaker {
+  from {
+    -webkit-transform: rotate(-35deg);
+            transform: rotate(-35deg);
+  }
+  to {
+    -webkit-transform: rotate(35deg);
+            transform: rotate(35deg);
+  }
+}
+
 footer {
   width: 100%;
-  padding-top: 1.3em;
+  padding-top: 1.5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

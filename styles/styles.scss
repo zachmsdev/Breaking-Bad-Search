@@ -108,11 +108,12 @@ section {
     flex-direction: column;
     gap: 2em;
     & > .characterPic {
-        height: 17rem;
-        width: 17rem;
+        height: 19rem;
+        width: 19rem;
         border-radius: 50%;
         background-color: $breakingBadGreen;
         border: 0.1px solid black;
+        @include bringCenter();
     }
 }
 
@@ -120,24 +121,29 @@ article {
     overflow-wrap: break-word;          // character description card
     width: 70%;
     max-width: 20.063em;
+    min-height: 18rem;
     padding: 0.5em 0.5em 0.8em 0.5em;
     background-color: #FFFFFF;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    & > h2 {
+    & > .cardContent {
+        display: none;
+    }
+    & div > h2 {
         text-align: center;
+        text-transform: capitalize;
         padding-top: 0.5em;
         font-family: 'Arial';
         font-weight: 500;
         margin-bottom: 0.5em;
     }
-    & > p {
+    & div > p {
         text-align: center;
         margin-bottom: 0.1em;
         color: $breakingBadGreen;
     }
-    & > h3 {
+    & div > h3 {
         text-align: center;
         margin-bottom: 0.5em;
         font-family: 'Jacques Francois';
@@ -145,11 +151,52 @@ article {
     }
 }
 
+i {                             // loading animation styles
+    font-size: 2.75rem;
+    animation: moveBeaker 2s infinite;
+    animation-direction: alternate-reverse;
+}
+
+.loadingBeaker {
+    min-height: 18rem;
+    @include bringCenter();
+}
+
+i.hide {
+    display: none;
+}
+
+.loadingBeaker.hide {
+    display: none;
+}
+
+.cardContent.hide {
+    display: none;
+}
+
+.cardContent.show {
+    display: inherit;
+}
+
+.characterPic.loading {
+    background: #274E22 !important;
+}
+
+@keyframes moveBeaker {
+    from {
+        transform: rotate(-35deg);
+    }
+    to {
+        transform: rotate(35deg);
+    }
+    
+}
+
 // --------------------------------------------- FOOTER
 
 footer {
     width: 100%;
-    padding-top: 1.3em;
+    padding-top: 1.5em;
     display: flex;
     justify-content: center;
     & > button {
