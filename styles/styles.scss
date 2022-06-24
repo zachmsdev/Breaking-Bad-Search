@@ -46,6 +46,7 @@ header {
             color: white;
             padding: 0.1em;
             box-shadow: -2px 1px 11px black;
+            margin-right: 0.055em;
         }
     }
     & > .searchBar {
@@ -63,10 +64,12 @@ header {
             border: none;
             height: 100%;
             width: 85%;
-            padding-left: 1em;
+            padding-left: 0.3em;
             border-top-left-radius: 5rem;
             border-bottom-left-radius: 5rem;
             font-size: 1.6rem;
+            appearance: none;
+            background-color: white;
             &::-ms-clear {
                 display: none;
                 width: 0;
@@ -81,17 +84,22 @@ header {
                 outline: none;
             }
         }
-        & > button {
+        & button {
             appearance: none;
             border: none;
             border-top-right-radius: 5rem;
             border-bottom-right-radius: 5rem;
-            padding: 0.51em;
-            background: none;
+            background: white;
             cursor: pointer;
+            & > .fa-magnifying-glass {
+                font-size: 1rem;
+                text-rendering: optimizeLegibility;
+                color: black;
+            }
         }
     }
 }
+
 
 input[type="search"]::-webkit-search-decoration,        // remove searchbar default styles
 input[type="search"]::-webkit-search-cancel-button,
@@ -127,8 +135,11 @@ article {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-    & > .cardContent {
+    & .cardContent {
         display: none;
+        & > .nickName, > .occupation {
+            text-transform: capitalize;
+        }
     }
     & div > h2 {
         text-align: center;
@@ -151,7 +162,7 @@ article {
     }
 }
 
-i {                             // loading animation styles
+.fa-flask {                             // loading animation styles
     font-size: 2.75rem;
     animation: moveBeaker 2s infinite;
     animation-direction: alternate-reverse;
@@ -162,7 +173,7 @@ i {                             // loading animation styles
     @include bringCenter();
 }
 
-i.hide {
+.fa-flask.hide {
     display: none;
 }
 
@@ -269,5 +280,14 @@ footer {
             width: 23rem;
             height: 23rem;
         }
+    }
+}
+
+@media not all and (min-resolution: 0.001dpcm) {    // Safari Targeting Query
+    .fa-magnifying-glass {
+        transform: translateY(-2px);
+    }
+    article div > h3 {
+        letter-spacing: -1px;
     }
 }

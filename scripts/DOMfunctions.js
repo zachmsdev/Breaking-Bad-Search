@@ -21,10 +21,11 @@ const hideLoading = () => {
     const cardContent = document.querySelector('.cardContent');
     const cardDescriptions = document.querySelectorAll('.cardContent > p');
     const characterPic = document.querySelector('.characterPic');
-    cardDescriptions.forEach(des => des.style.display = 'inherit');
     beakerIcons.forEach(beaker => beaker.classList.add('hide'));
+    cardDescriptions.forEach(des => des.style.display = 'inherit');
     beakerBG.classList.add('hide');
     characterPic.classList.remove('loading');
+    
     // display card content, loading is finished
     cardContent.classList.remove('hide');
     cardContent.classList.add('show');
@@ -36,16 +37,17 @@ const showLoading = () => {
     const cardContent = document.querySelector('.cardContent');
     const cardDescriptions = document.querySelectorAll('.cardContent > p');
     const characterPic = document.querySelector('.characterPic');
-    cardDescriptions.forEach(des => des.style.display = 'none');
     beakerIcons.forEach(beaker => {
         beaker.classList.remove('hide');
         beaker.style.animationDuration = '1s';
     });
     beakerBG.classList.remove('hide');
     characterPic.classList.add('loading');
+    
     // loading is in action, hide the main card content
     cardContent.classList.remove('show');
     cardContent.classList.add('hide');
+    cardDescriptions.forEach(des => des.style.display = 'none');
 }
 
 const searchLoading = () => {
@@ -59,33 +61,36 @@ const searchBar = async () => {
     let DATA = await getAllData();
     let inputValue = '';
 
-    // change names to lowercase for search
+    // change names / nicknames to lowercase for search
     for (let z = 0; z < DATA.length; z++) {
         DATA[z].name = DATA[z].name.toLowerCase();
+        DATA[z].nickname = DATA[z].nickname.toLowerCase();
     }
     
     // event listeners
     inputBar.addEventListener('input', (e) => {
         inputValue = e.target.value.toLowerCase();
-        console.log(inputValue);
     })
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        if (name.textContent === '') hideLoading();
-        if (name.textContent !== '') searchLoading();
         inputBar.value = '';
 
         // iterate over api data to find what user searches
         let lookUp = DATA.filter((character) => {
+            if (character.nickname.split(' ').includes(inputValue) || character.nickname === inputValue) return true;
             if (character.name.split(' ').includes(inputValue) || character.name === inputValue) return true;
         });
+
+        // removing loading animation
+        if (lookUp.length === 0 || inputValue === '') return;
+        if (name.textContent === '') hideLoading();
+        if (name.textContent !== '') searchLoading();
 
         // prevent walter white + walter white jr to both appear
         if (lookUp.length >= 2) {
             lookUp = lookUp.slice(0, 1);
         }
         
-        // bring search result to helper function for dom manipulation
         console.log(lookUp);
         addToPage(lookUp);
     })
