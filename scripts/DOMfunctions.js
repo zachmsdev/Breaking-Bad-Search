@@ -91,7 +91,6 @@ const searchBar = async () => {
             lookUp = lookUp.slice(0, 1);
         }
         
-        console.log(lookUp);
         addToPage(lookUp);
     })
 
