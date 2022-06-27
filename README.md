@@ -3,7 +3,7 @@
 Search any Breaking Bad character by first name, last name, full name or nickname. I built this wanting to practice<br /> 
 with REST APIs and ES6 modules. Breaking bad is one of my favorite shows as well so this was a fun project to<br />
 build for me! Added beaker loading animation and random button for random character information. Big thanks to<br />
-<a href='https://github.com/timbiles'>@timbiles</a> for creating this awesome API.
+<a href='https://github.com/timbiles'>@timbiles</a> for creating this awesome API to work with.
 
 <img src='https://i.ibb.co/yYrp1dH/bbSearch.png' width='650'>
 
