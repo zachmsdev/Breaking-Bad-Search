@@ -13,7 +13,7 @@ API website: <a href='https://breakingbadapi.com/'>Breaking Bad API</a>
 <ul>
   <li>HTML5</li>
   <li>SCSS</li>
-  <li>JavaScript (ES6 Modules)</li>
+  <li>JavaScript</li>
   <li>Figma</li>
   <li>Chrome DevTools</li>
   <li>Git</li>
